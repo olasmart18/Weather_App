@@ -28,10 +28,11 @@ app.post("/", (req, res) => {
                 const temp = weatherType.main.temp;
                 const description = weatherType.weather[0].description;
                 const icon = weatherType.weather[0].icon;
-                // const iconUrl = 
+                const iconUrl ="http://openweathermap.org/img/wn/" +icon +"@2x.png"
 
-                res.write(`<h1>the temperature in ${query} is ${temp} degree celcius.</h1>`);
-                res.write(`<h3>the weather is like ${description}`);
+                res.write(`<h1>The temperature in ${query} is ${temp} degree celcius.</h1>`);
+                res.write(`<h3>The weather is like ${description}</h3>`);
+                res.write(`<p>Cloud looks like <img src=${iconUrl}></p>`);
                 res.send();
             })
         })
